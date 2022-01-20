@@ -1,0 +1,4 @@
+FROM php:7.2-apache
+RUN mkdir /var/www/html/uploads
+RUN chmod 777 /var/www/html/uploads
+COPY . /var/www/html/

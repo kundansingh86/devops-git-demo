@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  webapp:
+    build: .
+    image: kundands/webapp
+    volumes:
+      - webassets:/var/www/html/uploads
+    ports:
+      - "8080:80"
+    restart: always
+
+volumes:
+  webassets:
+    external: true
