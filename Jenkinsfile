@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                bat "docker build -t kundands/myfirstpipeline D:\JENKINS-SLAVES\SLAVE-1\workspace\MyFirstPipeline"
             }
         }
         stage('Test') {
