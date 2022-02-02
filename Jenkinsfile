@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Builing"
+                bat "docker build -t kundands/myfirstpipeline D:\JENKINS-SLAVES\SLAVE-1\workspace\My-Project-Test"
             }
         }
-        stage('Test') {
+        stage('Clean') {
             steps {
-                echo 'Testing..'
+                bat "docker rm -f mypipelineweb || true"
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                bat "docker run -it -d -p 96:80 --name mypipelineweb kundands/myfirstpipeline"
             }
         }
     }
